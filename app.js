@@ -14,7 +14,7 @@ var fs = require('fs');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3003);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -37,7 +37,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/search', function(req, res){
-	fs.readFile(__dirname + '/public/search-data.json',function(error,data){
+	fs.readFile(__dirname + '/search-data.json',function(error,data){
 		searchData = JSON.parse(data)
 		console.log(req.query.search)
     if (searchData['programming'][req.query.search]){
